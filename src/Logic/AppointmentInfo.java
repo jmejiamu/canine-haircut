@@ -1,12 +1,14 @@
 
 package Logic;
 
+import java.io.Serializable;
 import javax.persistence.Basic;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
+// Create an entity and attributes in the database
 @Entity
-public class AppointmentInfo {
+public class AppointmentInfo implements Serializable {
     
     @Id
     private int client_num;
