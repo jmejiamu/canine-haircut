@@ -245,7 +245,7 @@ public class MainWindow extends javax.swing.JFrame {
                 || owner_cel_input.getText().equals("")
                 || observation_input.getText().equals("")) {
             // Message if a field is missing
-            JOptionPane.showMessageDialog(this, "Make user all the fiels are full fill ");
+            JOptionPane.showMessageDialog(this, "Make sure all the fiels are full fill");
         } else {
             int clientNum = Integer.parseInt(client_input.getText());
             String name = name_input.getText();
@@ -258,8 +258,9 @@ public class MainWindow extends javax.swing.JFrame {
             String observation = observation_input.getText();
 
             appointmentInfoController.createAppointment(clientNum, name, race, color, allergic, special, ownerName, ownerCel, observation);
-            JOptionPane.showMessageDialog(this, "Data Saved!");
+            
             clean();
+            JOptionPane.showMessageDialog(this, "Data Saved!");
         }
 
     }//GEN-LAST:event_btnSaveActionPerformed
