@@ -5,6 +5,9 @@
  */
 package GUI;
 
+import Logic.AppointmentInfoController;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author joch_
@@ -14,8 +17,12 @@ public class MainWindow extends javax.swing.JFrame {
     /**
      * Creates new form MainWindow
      */
+    AppointmentInfoController appointmentInfoController;
+
     public MainWindow() {
+
         initComponents();
+        appointmentInfoController = new AppointmentInfoController();
     }
 
     /**
@@ -96,6 +103,11 @@ public class MainWindow extends javax.swing.JFrame {
         });
 
         btnSave.setText("Save");
+        btnSave.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSaveActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -204,8 +216,9 @@ public class MainWindow extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+    // Method that cleans the inputs
 
-    public void clean(){
+    public void clean() {
         client_input.setText("");
         name_input.setText("");
         race_input.setText("");
@@ -221,7 +234,25 @@ public class MainWindow extends javax.swing.JFrame {
         clean();
     }//GEN-LAST:event_btnCleanActionPerformed
 
-    
+    private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
+        // TODO add your handling code here:
+
+        if (client_input.getText().equals("") || name_input.getText().equals("")
+                || race_input.getText().equals("") || color_input.getText().equals("")
+                || allergic_com_box.getSelectedItem().equals("-")
+                || special_atten_com_box.getSelectedItem().equals("-")
+                || owner_name_input.getText().equals("")
+                || owner_cel_input.getText().equals("")
+                || observation_input.getText().equals("")) {
+            // Message if a field is missing
+            JOptionPane.showMessageDialog(this, "Make user all the fiels are full fill ");
+        }else{
+            int clientNum = Integer.parseInt(client_input.getText());
+            clean();
+        }
+
+    }//GEN-LAST:event_btnSaveActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> allergic_com_box;
