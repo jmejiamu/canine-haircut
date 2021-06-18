@@ -1,0 +1,7 @@
+DATABASE DATA
+
+User: root
+Password: 12345
+BD: haircut_appointment
+
+Trate de crear otro user, pero no me andava; por lo tanto decidi quedarme con root que con el que me corria bien.
